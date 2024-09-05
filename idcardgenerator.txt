@@ -1,0 +1,80 @@
+import java.util.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+class IdCardGenerator
+{
+int getData1()
+{
+Scanner sc1=new Scanner(System.in);
+System.out.print("Enter year in the format 'yy' = ");
+int yr=sc1.nextInt();
+return (yr);
+}
+String getData2()
+{
+Scanner sc2=new Scanner(System.in);
+System.out.print("Enter course = ");
+String course=sc2.nextLine();
+return (course);
+}
+String getData3()
+{
+Scanner sc3=new Scanner(System.in);
+System.out.print("Enter name = ");
+String name=sc3.nextLine();
+return (name);
+}
+void values()
+{
+String n=getData3();
+String na;
+na=n.toUpperCase();
+int y=getData1();
+String c=getData2();
+String co;
+co=c.toUpperCase();
+int lvalue=100;
+lvalue++;
+String las = String.valueOf(lvalue);
+        String nic= y+""+co+"G";
+		System.out.print("Generated ID = "+nic);
+}
+public static void main(String[] args) throws IOException
+{
+IdCardGenerator obj=new IdCardGenerator();
+obj.values();
+File f=new File("first_.java");
+        Scanner scan=new Scanner(System.in);
+        f.createNewFile();
+        try{
+            Scanner sc = new Scanner(f);
+            Scanner scr=new Scanner(f);
+            if(!sc.hasNext()){
+                FileWriter writer=new FileWriter(f);
+                writer.write("101");
+                writer.close();
+            }
+            else{int num=101;
+                while(sc.hasNext()){
+                     num= Integer.parseInt(sc.next());
+                }
+                num=num+1;
+
+                System.out.println(num);
+                String matter="";
+                while(scr.hasNext()){
+                    matter=matter+" "+scr.next();
+                }
+                FileWriter writerf=new FileWriter(f);
+                writerf.write(matter+" "+num);
+                writerf.close();
+
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+}
+}
